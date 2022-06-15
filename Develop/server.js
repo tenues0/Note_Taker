@@ -1,19 +1,34 @@
 // Import express package
 const express = require('express');
 const path = require('path');
+const { clog } = require("./middleware/clog");
+const api = require('./routes/index.js');
 
+
+// Helper method for generating unique ids
+const uuid = require('./helpers/uuid');
+
+// the port that we are using for this app
+const PORT = process.env.port || 3001;
 // app is an object representation of a server
 const app = express();
 
-// bringing the JSON file in and assigning it a variable
-const notes = require('./db/db.json');
+// import custom middleware, "cLog"
+app.use(clog);
 
-// the port that we are using for this app
-const PORT = 3001;
-
+// Middleware for parsing JSON and urlencoded form data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true}));
 // app.use helps us add configurations 
 // make the public folder accessible to the client 
 app.use(express.static('public'));
+
+
+// bringing the JSON file in and assigning it a variable
+// const notes = require('./db/db.json');
+
+
+
 
 // HTML routes
 // GET request that returns the HTML page
@@ -82,6 +97,8 @@ app.post('/api/notes', (req, res) => {
   });
 
 
+
+app.use('/api', api);
 
 // This code is for the listening PORT,
 // without this the server will not listen and 
