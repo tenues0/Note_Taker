@@ -26,10 +26,11 @@ db.post("/api/notes", (req, res) => {
     const dataEntry = {
         title: req.body.title,
         text: req.body.text,
-        data_id: uuidv4(),
+        id: uuidv4(),
     }
 
-    readAndAppend(dataEntry, "../db/db.json");
+    // I had to fix the path to the db.json file
+    readAndAppend(dataEntry, path.join(__dirname, "../db/db.json"));
 
     const response = {
         status: 'success',
