@@ -2,7 +2,7 @@
 
 const db = require("express").Router();
 const { v4: uuidv4 } = require("uuid");
-const { readAndAppend, readFromFile } = require("../helpers/fsUtils");
+const { readAndAppend, readFromFile, writeToFile } = require("../helpers/fsUtils");
 const fs = require("fs");
 const path = require('path');
 
@@ -15,7 +15,7 @@ db.get('/api/notes', (req, res) => {
         // send the data
         res.json(JSON.parse(data));
       });
-    });
+});
 
 // POST route for adding entry to the database
 db.post("/api/notes", (req, res) => {
@@ -43,4 +43,38 @@ db.post("/api/notes", (req, res) => {
     }
 });
 
+db.delete("/api/notes/:id", (req, res) => {
+  const noteId = req.params.id;
+  // get the data
+  fs.readFile(path.join(__dirname, "../db/db.json"), 'utf8', (err,data) => {
+    if (err) throw err;
+
+    const result = JSON.parse(data).filter(note => note.id !== noteId);
+    writeToFile(path.join(__dirname, "../db/db.json"), result);
+
+
+
+    // send the data
+    res.json(JSON.parse(data));
+  });
+});
+
 module.exports = db;
+
+
+
+
+// db.delete("/api/notes/:id", (req, res) => {
+//   // get the data
+//   return fs.readFile(path.join(__dirname, './db/db.json'), 'utf8', (err,data) => {
+//     if (err) throw err;
+
+//     let notes = JSON.parse(data);
+//     let filterNotes = notes.filter(note => note.id !== req.params.id)
+
+    
+
+//     // send the data
+//     res.json(JSON.parse(data));
+//   });
+// });

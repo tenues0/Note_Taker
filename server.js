@@ -2,7 +2,6 @@
 const express = require('express');
 const path = require('path');
 const api = require('./routes/db.js');
-//const fs = require("fs");
 
 // the port that we are using for this app
 const PORT = process.env.port || 3001;
@@ -16,9 +15,8 @@ app.use(express.urlencoded({ extended: true}));
 // make the public folder accessible to the client 
 app.use(express.static('public'));
 
-// bringing the JSON file in and assigning it a variable
-//const notes = require('./db/db.json');
 app.use(api);
+
 // HTML routes
 // GET request that returns the HTML page
 // the homework notes call to make a GET * request
@@ -32,37 +30,6 @@ app.get('/', (req, res) => {
 app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, './public/notes.html'))
 );
-
-// API routes
-// return the JSON file containing the saved notes
-// app.get('/api/notes', (req, res) => {
-//   // get the data
-//   return fs.readFile(path.join(__dirname, './db/db.json'), 'utf8', (err,data) => {
-//     if (err) throw err;
-
-//     // send the data
-//     res.json(JSON.parse(data));
-//   });
-// });
-
-// app.post('/api/notes', (req, res) => {
-
-//   const newNote = {
-//     text: req.body.text,
-//     title: req.body.title,
-//     id: Math.random() 
-//   }
-
-//   // get the data
-//   return fs.readFile(path.join(__dirname, './db/db.json'), 'utf8', (err,data) => {
-//     if (err) throw err;
-
-//     // send the data
-//     res.json(JSON.parse(data));
-//   });
-// });
-
-
 
 // This code is for the listening PORT,
 // without this the server will not listen and 
