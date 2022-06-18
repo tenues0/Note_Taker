@@ -60,21 +60,3 @@ db.delete("/api/notes/:id", (req, res) => {
 });
 
 module.exports = db;
-
-
-
-
-// db.delete("/api/notes/:id", (req, res) => {
-//   // get the data
-//   return fs.readFile(path.join(__dirname, './db/db.json'), 'utf8', (err,data) => {
-//     if (err) throw err;
-
-//     let notes = JSON.parse(data);
-//     let filterNotes = notes.filter(note => note.id !== req.params.id)
-
-    
-
-//     // send the data
-//     res.json(JSON.parse(data));
-//   });
-// });
