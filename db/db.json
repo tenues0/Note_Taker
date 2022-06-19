@@ -1,17 +1,22 @@
 [
     {
-        "title": "zxcvzcxv",
-        "text": "xzcvxzcv",
-        "id": "d6c9b220-0c22-49d3-a269-4559ca339322"
+        "title": "Test Note",
+        "text": "Test note text",
+        "id": "528e4e45-5e2b-4e45-b4a8-94119f96b93e"
     },
     {
-        "title": "sldfkjg",
-        "text": "dasfasdf",
-        "id": "33cf6e6d-28b0-4dd7-855b-11f2790502ee"
+        "title": "Submit note taker",
+        "text": "Submit notetaker assignment\n",
+        "id": "c44caac3-24bd-4413-bb81-ce39fea1461f"
     },
     {
-        "title": "blah blah",
-        "text": "blah blah",
-        "id": "08207809-fbfc-42f0-91cb-3c9407fa09d3"
+        "title": "Action items for assignment",
+        "text": "List the NPM dependencies that are needed to make application run\ndeploy to Heroku\nMake video of application",
+        "id": "57e1cb78-1877-4188-ba76-7b0cc1e5ae2a"
+    },
+    {
+        "title": "The delete function works",
+        "text": "The delete function works",
+        "id": "69571386-6473-4b48-92d5-1c644789cc2a"
     }
 ]
