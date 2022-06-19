@@ -16,7 +16,14 @@ This is a heroku deployed application that allows a user to write themselves a t
 
 ## Usage
 
-The repo uses json format.
+The repo uses json format. The link to the heroku deployed application is below:
+
+https://teddy-note-taker.herokuapp.com/
+
+![image](https://user-images.githubusercontent.com/95945750/174494853-93cbdbe7-57cc-4a5b-b2bc-b6945d24a47b.png)
+
+![image](https://user-images.githubusercontent.com/95945750/174494869-a5fb02b0-c103-4f77-95bb-b55721130af3.png)
+
 
 ## Contributing
 
