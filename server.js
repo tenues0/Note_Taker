@@ -4,7 +4,7 @@ const path = require('path');
 const api = require('./routes/db.js');
 
 // the port that we are using for this app
-const PORT = process.env.port || 3001;
+const PORT = process.env.PORT || 3001;
 // app is an object representation of a server
 const app = express();
 
